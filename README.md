@@ -69,4 +69,25 @@ git init
 ```
 Apos executar esse comando, ser'a poss'ivel utilizar o comando ```git status``` para verificar o estado da staging area. Ao rodar esse comando, ser'a poss'ivel ver que o arquivo que criamos tem mudancas que n~ao foram mapeadas pelo git. Por enquanto vamos deixar isso, assim, para que possamos criar a primeira parte do programa, que encontra-se a seguir:
 ```python
+#!/usr/bin/python3
+import curses
+
+def main(stdscr):
+    stdscr.erase()
+    stdscr.addstr(1, 50, "Ola mundo")
+    stdscr.getch()
+
+if __name__ == "__main__":
+    curses.wrapper(main)
+```
+
+Note que a primeira linha do c'odigo serve para que seja poss'ivel executar o script sem explicitamente chamar o interpretador python3, pois ele j'a estar'a identificado no c'odigo. No entanto, se tentarmos rodar o c'odigo agora ele retornar'a um erro indicando que n~ao temos permiss~ao para executar aquele c'odigo. Isso se d'a pois, em Linux, um arquivo criado n~ao possu'i permiss~ao para ser executado imediatamente. 'E necess'ario conferir a ele essa permiss~ao. Isso se d'a utilizando o comando ```chmod```.
+
+```bash
+chmod +x <nome-do-arquivo>
+```
+
+A opc~ao ```+x``` 'e o que confere o direito de execu'c~ao ("eXecution"). Agora, 'e poss'ivel executar o arquivo utilizando:
+```bash
+./<nome-do-arquivo>
 ```
